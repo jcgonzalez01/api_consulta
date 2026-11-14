@@ -56,7 +56,28 @@ curl http://127.0.0.1:8000/rnc/401-00755-1
 }
 ```
 
-Códigos: `422` formato inválido, `404` no encontrado, `502` la DGII no respondió.
+Códigos: `401` falta la API key (si está activada), `422` formato inválido, `404` no encontrado, `502` la DGII no respondió.
+
+## Clave de acceso (opcional)
+
+Si defines la variable de entorno `API_KEY`, todas las consultas (excepto `/health`)
+exigen el encabezado `X-API-Key`:
+
+```bash
+API_KEY=mi-clave .venv/bin/uvicorn app.main:app
+curl -H "X-API-Key: mi-clave" http://127.0.0.1:8000/rnc/401007551
+```
+
+Sin la clave, la respuesta es `401`. Ver `.env.example`.
+
+## Docker / Coolify
+
+```bash
+docker build -t api-consulta .
+docker run -p 8000:8000 -e API_KEY=mi-clave api-consulta
+```
+
+Guía paso a paso para Coolify: [DESPLIEGUE_COOLIFY.md](DESPLIEGUE_COOLIFY.md).
 
 ## Notas
 

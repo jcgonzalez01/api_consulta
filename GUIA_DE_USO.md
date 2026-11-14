@@ -128,6 +128,7 @@ GET /health   →   {"status": "ok"}
 | Código | Significado | Qué hacer |
 |---|---|---|
 | `200` | Encontrado | Leer el campo `datos` |
+| `401` | Falta la API key o es incorrecta | Enviar el encabezado `X-API-Key` |
 | `404` | No inscrito en la DGII | Verificar el número |
 | `422` | Formato inválido (dígitos de más/menos, letras) | Corregir el número |
 | `502` | La DGII no respondió | Reintentar en unos minutos |
@@ -222,10 +223,23 @@ En Excel: **Datos → Obtener datos → Desde la web** y pega la URL, por ejempl
 
 ## 8. Seguridad
 
-- La API **no tiene usuario ni clave**. Mientras corre en modo red, cualquiera en tu red
-  (o en tu Tailscale) puede consultar.
-- Los datos de cédula son información personal: no la expongas a Internet sin agregar
-  autenticación.
+- **Clave de acceso:** si inicias la API con la variable `API_KEY`, todas las consultas
+  (menos `/health`) exigen el encabezado `X-API-Key`:
+
+  ```bash
+  API_KEY=mi-clave .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+  ```
+
+  ```bash
+  curl -H "X-API-Key: mi-clave" http://127.0.0.1:8000/rnc/401007551
+  ```
+
+  En Python: `requests.get(url, headers={"X-API-Key": "mi-clave"})`.
+  En `/docs`: botón **Authorize**.
+- Sin `API_KEY` la API **no tiene clave**: cualquiera en tu red (o en tu Tailscale) puede
+  consultar.
+- Los datos de cédula son información personal: **siempre** define `API_KEY` si la publicas
+  en Internet (por ejemplo en Coolify, ver `DESPLIEGUE_COOLIFY.md`).
 - Si solo la usas tú, inicia sin `--host 0.0.0.0`.
 
 ---

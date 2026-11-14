@@ -34,3 +34,16 @@ def test_cedula_no_encontrada(monkeypatch):
 
     monkeypatch.setattr(main.cliente, "consultar_cedula", falso)
     assert client.get("/cedula/001-0000000-1").status_code == 404
+
+
+def test_api_key_requerida(monkeypatch):
+    monkeypatch.setattr(main, "API_KEY", "secreta")
+
+    async def falso(num):
+        return {"estado": "ACTIVO"}
+
+    monkeypatch.setattr(main.cliente, "consultar_rnc", falso)
+    assert client.get("/rnc/401007551").status_code == 401
+    assert client.get("/rnc/401007551", headers={"X-API-Key": "mala"}).status_code == 401
+    assert client.get("/rnc/401007551", headers={"X-API-Key": "secreta"}).status_code == 200
+    assert client.get("/health").status_code == 200
