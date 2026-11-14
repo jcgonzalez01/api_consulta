@@ -1,0 +1,260 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head><title>
+	
+    Consulta de Ciudadanos
+
+</title><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Abhaya+Libre:400,500,600,700" rel="stylesheet" />
+
+    
+    <link href="/app/WebApps/ConsultasWeb2/ConsultasWeb/css/main.bundle.css" rel="stylesheet" />
+    
+    <link href="/app/WebApps/ConsultasWeb2/ConsultasWeb/css/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <link href="/app/WebApps/ConsultasWeb2/ConsultasWeb/css/jquery.ui.1.10.0.ie.css" rel="stylesheet" />
+    <link href="/app/WebApps/ConsultasWeb2/ConsultasWeb/css/styles.consultasWeb.css" rel="stylesheet" />
+    <link href="/app/WebApps/ConsultasWeb2/ConsultasWeb/css/DataTable.css" rel="stylesheet" />
+    <link href="/app/WebApps/ConsultasWeb2/ConsultasWeb/css/font-awesome.css" rel="stylesheet" />
+
+    <style type="text/css">
+        button.ui-dialog-titlebar-close:after {
+            content: string("x");
+        }
+
+        @media print {
+            a[href]:after {
+                content: none !important;
+            }
+        }
+    </style>
+
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/jUtility.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/jValidator.min.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/globalfunctions.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/scripts.consultasWeb.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="/app/WebApps/ConsultasWeb2/ConsultasWeb/js/dataTables.rowGroup.min.js"></script>
+
+    
+    <style>
+        .form-signing-heading {
+            margin-left: 15px;
+        }
+    </style> 
+</head>
+<body role="document">
+    <form method="post" action="./ciudadanos.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="frmMain" class="form-signin" role="form">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="LHXN5TBFiCADOcEtvuebMKXPoxH4rkNdmTCzQMVx69gkrvw+Fz/O0O89hCYltfPfeEvXpqTUCYdwL3ftP+3h1QMtTy5+a2CiGBP5hq9hjHDBWMROg79xUeJ1+YnF/yUcy6PPkYWnw9DlIqydVl2d80vGBpJC8gyUs9zZ1brcGerrDlz9inLJ3GqIHAaqc8vgiVqr3en9V7xKD4yG+FYC7226Zqjioeo1SMj+DOMsukgxm7otlj4MrCcPMFOQjFEINbDbFCH9c7yCRz1cRnykkFh+HqSaqrN+goPN4FtUzuopvGFWdKpdWM9YRSQ7h/ft9+AH3tUPX6h0zA4eAy/Uavk1ihH7ierhUnR0gq5Simi6Ki7i5LYZ4oddu9CayMXR/bkRgtkUtWplqYV87LB48p3W19Q=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frmMain'];
+if (!theForm) {
+    theForm = document.frmMain;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/app/WebApps/ConsultasWeb2/ConsultasWeb/WebResource.axd?d=PJO2QpT9MNH5ofLqE5M2tGGWMPKP9Q4yPzKbx2M_K0b5CrZ7R41sO7Onp4AdClqjJiv4Xd_6ZJVIKfiyfbssSpOQyW41&amp;t=638824108002306296" type="text/javascript"></script>
+
+
+<script src="/app/WebApps/ConsultasWeb2/ConsultasWeb/ScriptResource.axd?d=JgC6vt7YCNIM7KK_Zar2Sx5TiXoj2iCIobKpVrbfJj6WGZCSuVrdpUONEKHBdGcBthLkBbxR871xpuv1nMASxKkQKxqCWUdMTFAQOVqTCBTlNSoYRH9cBQw1mxC_zewlQPR7sSRQS27b826UL9HUAv8wsTc1&amp;t=2750b2ff" type="text/javascript"></script>
+<script src="/app/WebApps/ConsultasWeb2/ConsultasWeb/ScriptResource.axd?d=BIiOdmSL4x2HGdhDTs0anLFE7t3hf56oQu0KRhNcpSvjlmXCmzgVX2nFYkkr4WzrZLz_3OedmVYzqeyGCvGSTy0cKcK8QGvsDr-FWa4uY_plIe_WbOCvZL0dLv6pd0CiNI7SATk9DZupQivsXLwrkEJFhPQ1&amp;t=2a9d95e3" type="text/javascript"></script>
+<script src="/app/WebApps/ConsultasWeb2/ConsultasWeb/ScriptResource.axd?d=8ejRgawc55yfR-jnvgViv9QM98W7pejVM7grV2UcVX-r27Vs0P1Npgf6lOTIUnuDPtDkRwg2BIXZtPRKuSikDBISQjPYK6dScZPWnMeWhhixqck1zoaBYYmrnOBgtJBWVtGEcsntHrevcC3rNWRddsgV-yIhCsl-dAr4Oe0x9SbPWh6J0&amp;t=2a9d95e3" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C8A53969" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ohK0ZHby0PO8M99hXMXrCA7laa+H9fIFyFQCMziI1iLENRzkpfRKh0TZkzEKpfaUa627rBDddsEZCmh6X4Zt8ZvvhbloCfVw5jP6TB8x4QcC4UffYHMbjII+lsGH+pOTFRFgSEnWXU3SdAkEKr4ghMCAm9fKjWLHiGzFn6nNlwEPTlue" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$smMain', 'frmMain', ['tctl00$upMainMaster','upMainMaster','tctl00$cphMain$upBusqueda','cphMain_upBusqueda'], [], [], 100, 'ctl00');
+//]]>
+</script>
+
+        <div class="site_content">
+            <div id="upMainMaster">
+	
+                    <div class="container-overflowed" role="main">
+                        
+    <div class="row">
+        <div class="col">
+            <div class="consult-search__info">
+                <p>En esta consulta se muestran a las personas inscritas en el RNC como:
+                   Propietario de Vehículos/Inmuebles, Empleado/Asalariado, Diplomático/Cónsul, 
+                  Participación en Empresas, Sucesiones y Otras ocupaciones</p>
+            </div>
+            <div id="cphMain_upBusqueda">
+		
+                    <div onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;cphMain_btnBuscarCedula&#39;)">
+			
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-0">
+                                    <h6 class="mb-2"><strong>Introduzca el RNC o Cédula</strong></h6>
+                                    <input name="ctl00$cphMain$txtCedula" type="text" value="00100000001" maxlength="11" id="cphMain_txtCedula" title="Escriba un RNC o Cédula valido" class="form-control only-numbers consult-search__field" Placeholder="Escriba un RNC o Cédula válido" />
+                                    <span id="cphMain_rfvCedula" style="display:none;">Este es un campo requerido</span>
+                                    <span id="cphMain_regvCedula" style="display:none;">Debe de ingresar una cédula válida</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="consult-search__buttons">
+                            <div class="row ">
+                                <div class="col-12 text-xs-left text-sm-right">
+                                    
+                                    <input type="submit" name="ctl00$cphMain$btnBuscarCedula" value="Buscar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cphMain$btnBuscarCedula&quot;, &quot;&quot;, true, &quot;cedulaGroup&quot;, &quot;&quot;, false, false))" id="cphMain_btnBuscarCedula" class="consult-search__button-search btn btn-primary ml-2" />
+                                </div>
+                            </div>
+                        </div>
+                    
+		</div>
+                
+	</div>
+        </div>
+    </div>
+    <div id="cphMain_divBusqueda" class="row" name="divBusqueda" style="margin-top: -20px">
+        <div class="col-12">
+            <div class="row mt-5">
+                <div class="col">
+                    <div id="cphMain_divAlertDanger" class="alert alert-danger">El RNC/Cédula consultado no se encuentra inscrito como Registrado.</div>
+                </div>
+            </div>
+            <div class="row consult-search__results">
+                <div class="col-12">
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col text-center">
+            <div id="cphMain_upCargando" style="display:none;">
+		
+                    <div id="dCargando">
+                        <img src="/consultas/images/cargando.gif" alt="Imagen animada para indicar cargando." />
+                    </div>
+                
+	</div>
+        </div>
+    </div>
+
+                    </div>
+                
+</div>
+            <div id="upCargandoMaster" style="display:none;">
+	
+                    <div id="dCargando">
+                        <img src="/ConsultasWeb/images/cargando.gif" alt="Imagen animada para indicar cargando." />
+                    </div>
+                
+</div>
+        </div>
+                  
+        <div id="contenido_derecha">
+          <div id="content_content_derecha">
+            
+            
+          </div>
+        </div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("cphMain_rfvCedula"), document.getElementById("cphMain_regvCedula"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var cphMain_rfvCedula = document.all ? document.all["cphMain_rfvCedula"] : document.getElementById("cphMain_rfvCedula");
+cphMain_rfvCedula.controltovalidate = "cphMain_txtCedula";
+cphMain_rfvCedula.errormessage = "Este es un campo requerido";
+cphMain_rfvCedula.display = "Dynamic";
+cphMain_rfvCedula.validationGroup = "cedulaGroup";
+cphMain_rfvCedula.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+cphMain_rfvCedula.initialvalue = "";
+var cphMain_regvCedula = document.all ? document.all["cphMain_regvCedula"] : document.getElementById("cphMain_regvCedula");
+cphMain_regvCedula.controltovalidate = "cphMain_txtCedula";
+cphMain_regvCedula.errormessage = "Debe de ingresar una cédula válida";
+cphMain_regvCedula.display = "Dynamic";
+cphMain_regvCedula.validationGroup = "cedulaGroup";
+cphMain_regvCedula.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+cphMain_regvCedula.validationexpression = "^.{9,}$";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('cphMain_rfvCedula').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('cphMain_rfvCedula'));
+}
+
+document.getElementById('cphMain_regvCedula').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('cphMain_regvCedula'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"cphMain_upBusqueda","displayAfter":500,"dynamicLayout":true}, null, null, $get("cphMain_upCargando"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"upMainMaster","displayAfter":3000,"dynamicLayout":true}, null, null, $get("upCargandoMaster"));
+});
+//]]>
+</script>
+</form>
+
+    <script type="text/javascript">
+        var _pageRequest = Sys.WebForms.PageRequestManager.getInstance();
+        _pageRequest.add_endRequest(jUtility.BindControls);
+        _pageRequest.add_endRequest(jUtility.Init);
+        _pageRequest.add_endRequest(jUtility.HandlerException);
+
+    </script>
+
+    
+
+
+</body>
+</html>
