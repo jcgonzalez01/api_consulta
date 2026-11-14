@@ -35,8 +35,11 @@ mientras uses la API.
 | Este mismo equipo | `http://127.0.0.1:8000` |
 | Otro equipo en el mismo Wi-Fi/red | `http://192.168.1.26:8000` |
 | Por Tailscale | `http://100.123.107.9:8000` |
+| **Internet (Coolify)** | `https://api-consulta.kaisoftrd.com` — requiere `X-API-Key` |
 
 > La IP de red puede cambiar si el router asigna otra. Para verla: `hostname -I`
+>
+> Despliegue en Coolify y solución de problemas de dominio/SSL: ver `DESPLIEGUE_COOLIFY.md`.
 
 **Documentación interactiva:** abre `http://<IP>:8000/docs` en el navegador. Ahí puedes
 probar cada consulta con el botón **Try it out** sin escribir código.
