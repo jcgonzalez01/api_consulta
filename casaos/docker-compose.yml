@@ -4,11 +4,10 @@
 # Importar en CasaOS: App Store → "+" (arriba a la derecha) → Install a
 # customized app → Import → pegar este archivo.
 #
-# Antes de instalar, cambie:
-#   - API_KEY:      la misma clave que usa KaiCredit (API_CONSULTA_KEY).
-#   - TUNNEL_TOKEN: token del Cloudflare Tunnel (ver DESPLIEGUE_CASAOS.md).
-#                   Si no va a publicarla en Internet, borre el servicio
-#                   "cloudflared" completo.
+# Antes de instalar, cambie API_KEY por la misma clave que usa KaiCredit
+# (API_CONSULTA_KEY). KaiCredit (en Coolify) llega a esta API por Tailscale:
+#   API_CONSULTA_URL=http://<IP-Tailscale-de-CasaOS>:8000
+# Ver DESPLIEGUE_CASAOS.md.
 # =============================================================================
 
 name: api-consulta
@@ -41,21 +40,6 @@ services:
         - container: "8000"
           description:
             en_us: Puerto de la API (documentación en /docs)
-
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    container_name: api-consulta-tunel
-    restart: unless-stopped
-    command: tunnel --no-autoupdate run
-    environment:
-      TUNNEL_TOKEN: "PEGAR-AQUI-EL-TOKEN-DEL-TUNEL"
-    depends_on:
-      - api-consulta
-    x-casaos:
-      envs:
-        - container: TUNNEL_TOKEN
-          description:
-            en_us: Token del Cloudflare Tunnel (Zero Trust → Networks → Tunnels)
 
 x-casaos:
   architectures:

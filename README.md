@@ -79,7 +79,7 @@ docker run -p 8000:8000 -e API_KEY=mi-clave api-consulta
 
 Guía paso a paso para Coolify: [DESPLIEGUE_COOLIFY.md](DESPLIEGUE_COOLIFY.md).
 
-Servidor local en RD con CasaOS + Cloudflare Tunnel (necesario: la DGII no responde
+Servidor local en RD con CasaOS, conectado por Tailscale (necesario: la DGII no responde
 las búsquedas desde servidores en el extranjero): [DESPLIEGUE_CASAOS.md](DESPLIEGUE_CASAOS.md).
 
 ## Notas
