@@ -31,7 +31,13 @@ app = FastAPI(
     version="1.0.0",
 )
 
-cliente = DGIIClient(cache_ttl=float(os.getenv("CACHE_TTL", "600")))
+# DGII_TIMEOUT: segundos por intento (hay 2 intentos). Debe ser corto para que
+# quien consume la API (p. ej. KaiCredit, que espera 15 s) reciba un 502 claro
+# en vez de cortar la conexión.
+cliente = DGIIClient(
+    timeout=float(os.getenv("DGII_TIMEOUT", "6")),
+    cache_ttl=float(os.getenv("CACHE_TTL", "600")),
+)
 protegido = [Depends(verificar_api_key)]
 
 

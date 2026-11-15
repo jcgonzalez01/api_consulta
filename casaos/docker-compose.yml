@@ -1,0 +1,79 @@
+# =============================================================================
+# API Consulta DGII — app personalizada para CasaOS
+# =============================================================================
+# Importar en CasaOS: App Store → "+" (arriba a la derecha) → Install a
+# customized app → Import → pegar este archivo.
+#
+# Antes de instalar, cambie:
+#   - API_KEY:      la misma clave que usa KaiCredit (API_CONSULTA_KEY).
+#   - TUNNEL_TOKEN: token del Cloudflare Tunnel (ver DESPLIEGUE_CASAOS.md).
+#                   Si no va a publicarla en Internet, borre el servicio
+#                   "cloudflared" completo.
+# =============================================================================
+
+name: api-consulta
+
+services:
+  api-consulta:
+    image: ghcr.io/jcgonzalez01/api_consulta:latest
+    container_name: api-consulta
+    restart: unless-stopped
+    environment:
+      API_KEY: "CAMBIAR-POR-UNA-CLAVE-LARGA"
+      CACHE_TTL: "600"
+      DGII_TIMEOUT: "6"
+    ports:
+      - target: 8000
+        published: "8000"
+        protocol: tcp
+    x-casaos:
+      envs:
+        - container: API_KEY
+          description:
+            en_us: Clave que deben enviar los clientes en el encabezado X-API-Key
+        - container: CACHE_TTL
+          description:
+            en_us: Segundos que se guarda cada consulta en memoria
+        - container: DGII_TIMEOUT
+          description:
+            en_us: Segundos máximos de espera por la DGII en cada intento
+      ports:
+        - container: "8000"
+          description:
+            en_us: Puerto de la API (documentación en /docs)
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: api-consulta-tunel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: "PEGAR-AQUI-EL-TOKEN-DEL-TUNEL"
+    depends_on:
+      - api-consulta
+    x-casaos:
+      envs:
+        - container: TUNNEL_TOKEN
+          description:
+            en_us: Token del Cloudflare Tunnel (Zero Trust → Networks → Tunnels)
+
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: api-consulta
+  author: Kai Soft
+  developer: Kai Soft
+  category: Developer
+  title:
+    en_us: API Consulta DGII
+  tagline:
+    en_us: Consulta de cédula y RNC en la DGII
+  description:
+    en_us: >-
+      Consulta cédulas y RNC en las páginas públicas de la DGII y devuelve JSON.
+      Debe correr desde una conexión en República Dominicana: la DGII no
+      responde las búsquedas que vienen de servidores fuera del país.
+  port_map: "8000"
+  scheme: http
+  index: /docs
